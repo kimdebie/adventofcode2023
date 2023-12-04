@@ -1,13 +1,10 @@
 import re
 from utils import read_input
-from collections import defaultdict
 
 
 def part1(cards):
 
-
     points = 0
-
 
     for card in cards:
 
@@ -36,15 +33,13 @@ def part2(cards):
         card_points = sum(m in winning for m in mine)
 
         for n in range(card_points):
-            card_counts[i+n+1] += 1
+            card_counts[i+n+1] += 1 * card_counts[i]
     
     total_cards = sum(card_counts.values())
     print(total_cards)
-       
-
 
 
 if __name__ == '__main__':
-    file_input = read_input('inputs/day4test.txt')
+    file_input = read_input('inputs/day4.txt')
     part1(file_input)
     part2(file_input)

@@ -21,7 +21,8 @@ def part1(schematic):
     for i, line in enumerate(schematic):
         for number in re.finditer(r'\d+', line):
             start_ix, end_ix = number.span()
-            chars_around = schematic[i-1][start_ix-1:end_ix+1] + line[start_ix-1] + line[end_ix] + schematic[i+1][start_ix-1:end_ix+1]
+            chars_around = (schematic[i-1][start_ix-1:end_ix+1] +
+                            line[start_ix-1] + line[end_ix] + schematic[i+1][start_ix-1:end_ix+1])
             if len([c for c in chars_around if c != '.' and not c.isdigit()]) > 0:
                 parts_sum += int(number[0])
 
