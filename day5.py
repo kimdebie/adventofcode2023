@@ -34,7 +34,7 @@ def part1(seeds, parsed_map):
         next_seed = seed
         for map_part in parsed_map:
             for destination, source, range_length in map_part:
-                if set([next_seed]) & set(range(source, source+range_length)):
+                if source < next_seed < source+range_length:
                     difference = destination - source
                     next_seed = next_seed + difference
                     break
