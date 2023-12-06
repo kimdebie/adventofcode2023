@@ -8,9 +8,7 @@ def parse_map_part(map_part):
         [int(i) for i in instruction] 
         for line in map_part
         if (instruction := re.findall(r'\d+', line))
-    ]
-    
-            
+    ]   
 
 
 def parse_map(map):
@@ -42,6 +40,16 @@ def part1(seeds, parsed_map):
     print(min(seed_nrs))
 
 
+def part2(seeds, parsed_map):
+
+    min_seeds = []
+    for map_part in parsed_map[::-1]:
+        for destination, source, range_length in map_part:
+            pass
+            
+
+
 if __name__ == '__main__':
     file_input = read_input('inputs/day5.txt')
     part1(*parse_map(file_input))
+    part2(*parse_map(file_input))
